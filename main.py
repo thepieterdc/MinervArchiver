@@ -100,6 +100,12 @@ def download(driver: WebDriver, course: str):
         logging.info(f"Already exists {new_name}")
         return
 
+    empties = driver.find_elements_by_class_name('italic')
+    for empty in empties:
+        if empty.tag_name == 'td' and 'Geen gegevens weer te geven' in empty.text:
+            logging.info(f"No files found: {new_name}")
+            return
+
     driver.get(ziplink)
 
     # Wait for the file to download.
