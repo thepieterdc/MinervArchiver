@@ -12,8 +12,6 @@ logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S',
                     level=logging.INFO)
 
-PROCESSES = 4
-
 
 def ask_user(question: str) -> str:
     resp = None
